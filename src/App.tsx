@@ -1,35 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Routes, Route, Link } from 'react-router';
+import TicTacToec from "./pages/tic-tac-toe/tic-tac-toe.tsx";
+import Button from '@mui/material/Button';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+      <>
+        <h1>React Router</h1>
 
-export default App
+        <Navigation />
+
+        <Routes>
+          <Route path="home" element={<Home />} />
+          <Route path="users" element={<Users />} />
+          <Route path="tic" element={<TicTacToec />} />
+        </Routes>
+      </>
+  );
+};
+
+const Home = () => {
+  return (
+      <main style={{ padding: '1rem 0' }}>
+        <h2>Home</h2>
+      </main>
+  );
+};
+
+const Users = () => {
+  return (
+      <main style={{ padding: '1rem 0' }}>
+        <h2>Users</h2>
+      </main>
+  );
+};
+
+const Navigation = () => {
+  return (
+      <>
+          <nav
+              style={{
+                borderBottom: "solid 1px",
+                paddingBottom: "1rem",
+              }}
+          >
+            <Link to="/home">Home</Link>
+            <Link to="/users">Users</Link>
+            <Link to="/tic">Tic</Link>
+          </nav>
+          <Button variant="contained">Hello World</Button>
+      </>
+  );
+};
+
+export default App;
