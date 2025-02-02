@@ -1,5 +1,6 @@
 import { Routes, Route, Link } from 'react-router';
 import TicTacToec from "./pages/tic-tac-toe/tic-tac-toe.tsx";
+import Button from '@mui/material/Button';
 
 const App = () => {
   return (
@@ -35,16 +36,19 @@ const Users = () => {
 
 const Navigation = () => {
   return (
-      <nav
-          style={{
-            borderBottom: "solid 1px",
-            paddingBottom: "1rem",
-          }}
-      >
-        <Link to="/home">Home</Link>
-        <Link to="/users">Users</Link>
-        <Link to="/tic">Tic</Link>
-      </nav>
+      <>
+          <nav
+              style={{
+                borderBottom: "solid 1px",
+                paddingBottom: "1rem",
+              }}
+          >
+            <Link to="/home">Home</Link>
+            <Link to="/users">Users</Link>
+            <Link to="/tic">Tic</Link>
+          </nav>
+          <Button variant="contained">Hello World</Button>
+      </>
   );
 };
 
